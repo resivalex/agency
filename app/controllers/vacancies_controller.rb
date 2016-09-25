@@ -52,6 +52,7 @@ class VacanciesController < ApplicationController
                                      :expires_at,
                                      :phone,
                                      :email,
-                                     :extra_contacts)
+                                     :extra_contacts,
+                                     skill_ids: [])
   end
 end

@@ -1,5 +1,5 @@
 = render 'shared/errors', record: @resume
-= form_for @resume do |f|
+= form_for @resume, html: { 'ng-app': 'app.resumes', 'ng-controller': 'ResumeCtrl'} do |f|
   .form-group
     .row
       = f.label :last_name, class: 'col-md-3 text-right'
@@ -41,5 +41,24 @@
       = f.label :is_active, class: 'col-md-3 text-right'
       .col-md-9
         = f.check_box :is_active, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :skill_ids, class: 'col-md-3 text-right'
+      = f.hidden_field :skill_ids, multiple: true, value: '{{item.id}}',
+                                   'ng-repeat': 'item in selected.items'
+      .col-md-6
+        ui-select ng-model="selected.items" ng-init="initSelectedIds(#{@resume.skill_ids.to_json})" multiple=""
+          ui-select-match placeholder="Select skills..."
+            span ng-bind="$item.name"
+
+          ui-select-choices repeat="item in (skills | filter: $select.search) track by item.id"
+            span ng-bind="item.name"
+
+      .col-md-3
+        .input-group
+          input.form-control ng-model="skillName" type="text" placeholder="New skill"
+          span.input-group-btn
+            button.btn.btn-default type="button" ng-click="addNewSkill(skillName)" +
 
   = f.submit class: 'btn btn-primary pull-right'

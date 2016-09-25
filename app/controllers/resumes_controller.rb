@@ -53,6 +53,7 @@ class ResumesController < ApplicationController
                                     :phone,
                                     :email,
                                     :desired_salary,
-                                    :is_active)
+                                    :is_active,
+                                    skill_ids: [])
   end
 end

@@ -1,3 +1,20 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+angular.module('app.resumes', ['ui.select', 'ngSanitize', 'ui.bootstrap', 'backend'])
+
+angular.module('app.resumes')
+.controller('ResumeCtrl', ['$scope', 'Skill', ($scope, Skill) ->
+  $scope.initSelectedIds = (ids) ->
+    $scope.selectedIds = ids
+
+  $scope.addNewSkill = (name) ->
+    new Skill().save name, (skill) ->
+      $scope.skills.push(skill)
+      $scope.selected.items.push(skill)
+
+  $scope.skills = []
+  $scope.selected = { items: [] }
+
+  new Skill().all (skills) ->
+    $scope.skills = skills
+    $scope.selected.items = skills.filter (skill) ->
+                              skill.id in $scope.selectedIds
+])
