@@ -9,6 +9,10 @@ module Skillable
       joins(:skill_holdings).where.not(skill_holdings: { skill_id: skills.ids }).uniq
     end
 
+    scope :has_matched_skills, -> (skills) do
+      joins(:skill_holdings).uniq
+    end
+
     scope :matched_by_all_skills, -> (skills) do
       if skills.empty?
         all
