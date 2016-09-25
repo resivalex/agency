@@ -1,4 +1,5 @@
 h1.page-header Resumes
+= link_to 'New resume', new_resume_path, class: 'btn btn-primary'
 table.table.table-striped
   thead
     th Name
@@ -10,7 +11,7 @@ table.table.table-striped
   tbody
     - @resumes.each do |resume|
       tr
-        td = resume.full_name
+        td = link_to resume.full_name, resume_path(resume)
         td = resume.phone
         td = resume.email
         td = resume.desired_salary

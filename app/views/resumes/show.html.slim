@@ -1,0 +1,6 @@
+h1.page-header Resume
+
+div = "Name: #{@resume.full_name}"
+
+div = link_to 'Edit', edit_resume_path(@resume)
+div = link_to 'Delete', resume_path(@resume), method: :delete, data: { confirm: 'Delete?' }

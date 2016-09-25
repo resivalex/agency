@@ -1,0 +1,45 @@
+= render 'shared/errors', record: @resume
+= form_for @resume do |f|
+  .form-group
+    .row
+      = f.label :last_name, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :last_name, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :first_name, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :first_name, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :middle_name, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :middle_name, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :phone, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :phone, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :email, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :email, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :desired_salary, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :desired_salary, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :is_active, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.check_box :is_active, class: 'form-control'
+
+  = f.submit class: 'btn btn-primary pull-right'
