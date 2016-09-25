@@ -8,4 +8,6 @@ html
 
   body
     = render 'layouts/navigation'
-    = yield
+    = render 'layouts/flash_messages'
+    .container
+      = yield

@@ -1,0 +1,6 @@
+h1.page-header Vacancy
+
+div = "Name: #{@vacancy.name}"
+
+div = link_to 'Edit', edit_vacancy_path(@vacancy)
+div = link_to 'Delete', vacancy_path(@vacancy), method: :delete, data: { confirm: 'Delete?' }

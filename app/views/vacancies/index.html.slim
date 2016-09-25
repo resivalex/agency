@@ -1,21 +1,23 @@
-.container
-  h1.page-header Vacancies
-  table.table
-    thead
-      th Name
-      th Created
-      th Expires
-      th Phone
-      th E-mail
-      th Contacts
-      th Skills
-    tbody
-      - @vacancies.each do |vacancy|
-        tr
-          td = vacancy.name
-          td = vacancy.created_at
-          td = vacancy.expires_at
-          td = vacancy.phone
-          td = vacancy.email
-          td = vacancy.extra_contacts
-          td = vacancy.skills_line
+h1.page-header Vacancies
+= link_to 'New vacancy', new_vacancy_path, class: 'btn btn-primary'
+table.table.table-striped
+  thead
+    th Name
+    th Salary
+    th Created
+    th Expires
+    th Phone
+    th E-mail
+    th Contacts
+    th Skills
+  tbody
+    - @vacancies.each do |vacancy|
+      tr
+        td = link_to vacancy.name, vacancy_path(vacancy)
+        td = vacancy.salary
+        td = vacancy.created_at
+        td = vacancy.expires_at
+        td = vacancy.phone
+        td = vacancy.email
+        td = vacancy.extra_contacts
+        td = vacancy.skills_line

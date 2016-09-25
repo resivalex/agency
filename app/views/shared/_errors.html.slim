@@ -1,0 +1,6 @@
+- if record.errors.any?
+  .alert.alert-danger
+    h4 = "#{record.errors.count} errors"
+    ul
+    - record.errors.full_messages.each do |msg|
+      li = msg

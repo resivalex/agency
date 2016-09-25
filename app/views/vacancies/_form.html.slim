@@ -1,0 +1,39 @@
+= render 'shared/errors', record: @vacancy
+= form_for @vacancy do |f|
+  .form-group
+    .row
+      = f.label :name, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :name, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :salary, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :salary, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :phone, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :phone, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :email, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :email, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :extra_contacts, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :extra_contacts, class: 'form-control'
+
+  .form-group
+    .row
+      = f.label :expires_at, class: 'col-md-3 text-right'
+      .col-md-9
+        = f.text_field :expires_at, class: 'form-control'
+
+  = f.submit class: 'btn btn-primary pull-right'
