@@ -6,7 +6,7 @@ module Skillable
     has_many :skills, through: :skill_holdings
 
     def skills_line
-      skills.pluck(:name).join(', ')
+      skills.pluck(:name).sort.join(', ')
     end
   end
 end

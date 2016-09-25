@@ -3,10 +3,10 @@ css_skill = Skill.find_or_create_by(name: 'css')
 js_skill = Skill.find_or_create_by(name: 'js')
 
 vacancy = Vacancy.find_or_create_by(name: 'Верстальщик',
-                                    expires_at: Time.current + 1.day,
                                     phone: '22-22-22',
                                     email: 'mail@example.com',
                                     extra_contacts: 'Moscow')
+vacancy.update_attribute(:expires_at, Time.current + 1.day)
 
 resume = Resume.find_or_create_by(first_name: 'Игорь',
                                   last_name: 'Петров',
