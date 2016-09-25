@@ -1,0 +1,17 @@
+.container
+  h1.page-header Resumes
+  table.table
+    thead
+      th Name
+      th Phone
+      th E-mail
+      th Desired salary
+      th Active?
+    tbody
+      - @resumes.each do |resume|
+        tr
+          td = resume.full_name
+          td = resume.phone
+          td = resume.email
+          td = resume.desired_salary
+          td = resume.is_active ? 'Yes' : 'No'
