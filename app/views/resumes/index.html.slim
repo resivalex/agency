@@ -6,6 +6,7 @@
       th Phone
       th E-mail
       th Desired salary
+      th Skills
       th Active?
     tbody
       - @resumes.each do |resume|
@@ -14,4 +15,5 @@
           td = resume.phone
           td = resume.email
           td = resume.desired_salary
+          td = resume.skills_line
           td = resume.is_active ? 'Yes' : 'No'

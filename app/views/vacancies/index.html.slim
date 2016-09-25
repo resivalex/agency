@@ -8,6 +8,7 @@
       th Phone
       th E-mail
       th Contacts
+      th Skills
     tbody
       - @vacancies.each do |vacancy|
         tr
@@ -17,3 +18,4 @@
           td = vacancy.phone
           td = vacancy.email
           td = vacancy.extra_contacts
+          td = resume.skills_line

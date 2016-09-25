@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925094322) do
+ActiveRecord::Schema.define(version: 20160925112953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20160925094322) do
     t.boolean  "is_active"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "skill_holdings", force: :cascade do |t|
+    t.integer  "skillable_id"
+    t.string   "skillable_type"
+    t.integer  "skill_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "skill_holdings", ["skillable_type", "skillable_id"], name: "index_skill_holdings_on_skillable_type_and_skillable_id", using: :btree
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "vacancies", force: :cascade do |t|
