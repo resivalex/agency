@@ -2,7 +2,7 @@ class ResumesController < ApplicationController
   before_action :find_resume, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resumes = Resume.all
+    @resumes = Resume.ordered
   end
 
   def show

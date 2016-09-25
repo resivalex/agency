@@ -2,7 +2,7 @@ class VacanciesController < ApplicationController
   before_action :find_vacancy, only: [:show, :edit, :update, :destroy]
 
   def index
-    @vacancies = Vacancy.all
+    @vacancies = Vacancy.ordered
   end
 
   def show

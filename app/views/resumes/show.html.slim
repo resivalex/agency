@@ -1,6 +1,63 @@
-h1.page-header Resume
+h1.page-header Resume #{@resume.full_name}
 
 div = "Name: #{@resume.full_name}"
+div = "Skills: #{@resume.skills_line}"
 
 div = link_to 'Edit', edit_resume_path(@resume)
 div = link_to 'Delete', resume_path(@resume), method: :delete, data: { confirm: 'Delete?' }
+
+br
+
+ul.nav.nav-tabs
+  li.active
+    a data-toggle="tab" href="#full" Fully
+
+  li
+    a data-toggle="tab" href="#part" Partly
+
+.tab-content
+  #full.tab-pane.active
+    table.table.table-striped
+      thead
+        th Name
+        th Salary
+        th Created
+        th Expires
+        th Phone
+        th E-mail
+        th Contacts
+        th Skills
+      tbody
+        - @resume.fully_vacancies.each do |vacancy|
+          tr
+            td = link_to vacancy.name, vacancy_path(vacancy)
+            td = vacancy.salary
+            td = vacancy.created_at
+            td = vacancy.expires_at
+            td = vacancy.phone
+            td = vacancy.email
+            td = vacancy.extra_contacts
+            td = vacancy.skills_line
+
+  #part.tab-pane
+    table.table.table-striped
+      thead
+        th Name
+        th Salary
+        th Created
+        th Expires
+        th Phone
+        th E-mail
+        th Contacts
+        th Skills
+      tbody
+        - @resume.partly_vacancies.each do |vacancy|
+          tr
+            td = link_to vacancy.name, vacancy_path(vacancy)
+            td = vacancy.salary
+            td = vacancy.created_at
+            td = vacancy.expires_at
+            td = vacancy.phone
+            td = vacancy.email
+            td = vacancy.extra_contacts
+            td = vacancy.skills_line
