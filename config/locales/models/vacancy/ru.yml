@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      vacancy:
+        one: вакансия
+        few: вакансии
+        many: вакансий
+    attributes:
+      vacancy:
+        created_at: Создана
+        name: Название
+        salary: Зарплата
+        phone: Телефон
+        email: E-mail
+        extra_contacts: Контакты
+        expires_at: Действительна до
+        skill_ids: Умения
+        skills: Умения

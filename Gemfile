@@ -28,6 +28,7 @@ gem 'dotenv-rails'
 gem 'pg'
 # Slim template engine
 gem 'slim-rails'
+gem 'russian'
 
 source 'https://rails-assets.org' do
   # Bootstrap

@@ -1,63 +1,25 @@
-h1.page-header Resume #{@resume.full_name}
+h1.page-header #{Resume.model_name.human.mb_chars.capitalize.to_s} #{@resume.full_name}
 
-div = "Name: #{@resume.full_name}"
-div = "Skills: #{@resume.skills_line}"
+= render 'info', resume: @resume
 
-div = link_to 'Edit', edit_resume_path(@resume)
-div = link_to 'Delete', resume_path(@resume), method: :delete, data: { confirm: 'Delete?' }
+div
+  = link_to t(:edit), edit_resume_path(@resume), class: 'btn btn-primary pull-right'
+  = link_to t(:delete), resume_path(@resume), class: 'btn text-danger pull-right', method: :delete, data: { confirm: "#{t(:delete)}?" }
 
 br
 
+h2 = t(:suitable_vacancies)
+
 ul.nav.nav-tabs
   li.active
-    a data-toggle="tab" href="#full" Fully
+    a data-toggle="tab" href="#full" = t(:fully).mb_chars.capitalize.to_s
 
   li
-    a data-toggle="tab" href="#part" Partly
+    a data-toggle="tab" href="#part" = t(:partly).mb_chars.capitalize.to_s
 
 .tab-content
   #full.tab-pane.active
-    table.table.table-striped
-      thead
-        th Name
-        th Salary
-        th Created
-        th Expires
-        th Phone
-        th E-mail
-        th Contacts
-        th Skills
-      tbody
-        - @resume.fully_vacancies.each do |vacancy|
-          tr
-            td = link_to vacancy.name, vacancy_path(vacancy)
-            td = vacancy.salary
-            td = vacancy.created_at.to_date
-            td = vacancy.expires_at.to_date
-            td = vacancy.phone
-            td = vacancy.email
-            td = vacancy.extra_contacts
-            td = vacancy.skills_line
+    = render 'shared/vacancies_table', vacancies: @resume.fully_vacancies
 
   #part.tab-pane
-    table.table.table-striped
-      thead
-        th Name
-        th Salary
-        th Created
-        th Expires
-        th Phone
-        th E-mail
-        th Contacts
-        th Skills
-      tbody
-        - @resume.partly_vacancies.each do |vacancy|
-          tr
-            td = link_to vacancy.name, vacancy_path(vacancy)
-            td = vacancy.salary
-            td = vacancy.created_at.to_date
-            td = vacancy.expires_at.to_date
-            td = vacancy.phone
-            td = vacancy.email
-            td = vacancy.extra_contacts
-            td = vacancy.skills_line
+    = render 'shared/vacancies_table', vacancies: @resume.partly_vacancies

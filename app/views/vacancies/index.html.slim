@@ -1,23 +1,5 @@
-h1.page-header Vacancies
-= link_to 'New vacancy', new_vacancy_path, class: 'btn btn-primary'
-table.table.table-striped
-  thead
-    th Name
-    th Salary
-    th Created
-    th Expires
-    th Phone
-    th E-mail
-    th Contacts
-    th Skills
-  tbody
-    - @vacancies.each do |vacancy|
-      tr
-        td = link_to vacancy.name, vacancy_path(vacancy)
-        td = vacancy.salary
-        td = vacancy.created_at.to_date
-        td = vacancy.expires_at.to_date
-        td = vacancy.phone
-        td = vacancy.email
-        td = vacancy.extra_contacts
-        td = vacancy.skills_line
+h1.page-header = Vacancy.model_name.human(count: 2).mb_chars.capitalize.to_s
+
+= link_to t(:new_vacancy), new_vacancy_path, class: 'btn btn-primary'
+
+= render 'shared/vacancies_table', vacancies: @vacancies

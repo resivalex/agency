@@ -1,0 +1,21 @@
+ru:
+  edit: Редактировать
+  edit_vacancy: Редактировать вакансию
+  edit_resume: Редактировать резюме
+  error:
+    one: ошибка
+    few: ошибки
+    many: ошибок
+  delete: Удалить
+  fully: полностью
+  new_resume: Новое резюме
+  new_skill: Новое умение
+  new_vacancy: Новая вакансия
+  no: Нет
+  partly: частично
+  recruitment_site: Сайт кадрового агенства
+  select_skills: Выберите умения
+  suitable_vacancies: Подходящие вакансии
+  suitable_resumes: Подходящие резюме
+  main: Главная
+  yes: Да

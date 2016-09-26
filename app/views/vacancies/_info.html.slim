@@ -1,0 +1,28 @@
+.panel.panel-default
+  .panel-body
+    table.table.table-striped
+      tbody
+        tr
+          th = Vacancy.human_attribute_name(:name)
+          td = vacancy.name
+        tr
+          th = Vacancy.human_attribute_name(:salary)
+          td = vacancy.salary
+        tr
+          th = Vacancy.human_attribute_name(:created_at)
+          td = vacancy.created_at.to_date
+        tr
+          th = Vacancy.human_attribute_name(:expires_at)
+          td = vacancy.expires_at.to_date
+        tr
+          th = Vacancy.human_attribute_name(:phone)
+          td = vacancy.phone
+        tr
+          th = Vacancy.human_attribute_name(:email)
+          td = vacancy.email
+        tr
+          th = Vacancy.human_attribute_name(:extra_contacts)
+          td = vacancy.extra_contacts
+        tr
+          th = Vacancy.human_attribute_name(:skills)
+          td = vacancy.skills_line

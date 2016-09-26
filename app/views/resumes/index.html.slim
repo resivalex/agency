@@ -1,19 +1,5 @@
-h1.page-header Resumes
-= link_to 'New resume', new_resume_path, class: 'btn btn-primary'
-table.table.table-striped
-  thead
-    th Name
-    th Phone
-    th E-mail
-    th Desired salary
-    th Skills
-    th Active?
-  tbody
-    - @resumes.each do |resume|
-      tr
-        td = link_to resume.full_name, resume_path(resume)
-        td = resume.phone
-        td = resume.email
-        td = resume.desired_salary
-        td = resume.skills_line
-        td = resume.is_active ? 'Yes' : 'No'
+h1.page-header = Resume.model_name.human(count: 2).mb_chars.capitalize.to_s
+
+= link_to t(:new_resume), new_resume_path, class: 'btn btn-primary'
+
+= render 'shared/resumes_table', resumes: @resumes

@@ -1,0 +1,22 @@
+.panel.panel-default
+  .panel-body
+    table.table.table-striped
+      tbody
+        tr
+          th = Resume.human_attribute_name(:first_name)
+          td = resume.full_name
+        tr
+          th = Resume.human_attribute_name(:phone)
+          td = resume.phone
+        tr
+          th = Resume.human_attribute_name(:email)
+          td = resume.email
+        tr
+          th = Resume.human_attribute_name(:desired_salary)
+          td = resume.desired_salary
+        tr
+          th = Resume.human_attribute_name(:skills)
+          td = resume.skills_line
+        tr
+          th = Resume.human_attribute_name(:is_active)
+          td = t(resume.is_active ? :yes : :no)

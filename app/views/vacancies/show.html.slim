@@ -1,51 +1,25 @@
-h1.page-header Vacancy #{@vacancy.name}
+h1.page-header #{Vacancy.model_name.human.mb_chars.capitalize.to_s} #{@vacancy.name}
 
-div = "Name: #{@vacancy.name}"
-div = "Skills: #{@vacancy.skills_line}"
+= render 'info', vacancy: @vacancy
 
-div = link_to 'Edit', edit_vacancy_path(@vacancy)
-div = link_to 'Delete', vacancy_path(@vacancy), method: :delete, data: { confirm: 'Delete?' }
+div
+  = link_to t(:edit), edit_vacancy_path(@vacancy), class: 'btn btn-primary pull-right'
+  = link_to t(:delete), vacancy_path(@vacancy), class: 'btn text-danger pull-right', method: :delete, data: { confirm: "#{t(:delete)}?" }
 
 br
 
+h2.page-header = t(:suitable_resumes)
+
 ul.nav.nav-tabs
   li.active
-    a data-toggle="tab" href="#full" Fully
+    a data-toggle="tab" href="#full" = t(:fully).mb_chars.capitalize.to_s
 
   li
-    a data-toggle="tab" href="#part" Partly
+    a data-toggle="tab" href="#part" = t(:partly).mb_chars.capitalize.to_s
 
 .tab-content
   #full.tab-pane.active
-    table.table.table-striped
-      thead
-        th Name
-        th Phone
-        th E-mail
-        th Desired salary
-        th Skills
-      tbody
-        - @vacancy.fully_resumes.each do |resume|
-          tr
-            td = link_to resume.full_name, resume_path(resume)
-            td = resume.phone
-            td = resume.email
-            td = resume.desired_salary
-            td = resume.skills_line
+    = render 'shared/resumes_table', resumes: @vacancy.fully_resumes
 
   #part.tab-pane
-    table.table.table-striped
-      thead
-        th Name
-        th Phone
-        th E-mail
-        th Desired salary
-        th Skills
-      tbody
-        - @vacancy.partly_resumes.each do |resume|
-          tr
-            td = link_to resume.full_name, resume_path(resume)
-            td = resume.phone
-            td = resume.email
-            td = resume.desired_salary
-            td = resume.skills_line
+    = render 'shared/resumes_table', resumes: @vacancy.partly_resumes

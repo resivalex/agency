@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      resume:
+        one: резюме
+        few: резюме
+        many: резюме
+    attributes:
+      resume:
+        first_name: Имя
+        is_active: Активен
+        last_name: Фамилия
+        middle_name: Отчество
+        phone: Телефон
+        email: E-mail
+        desired_salary: Желаемая зарплата
+        skill_ids: Умения
+        skills: Умения
