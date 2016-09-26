@@ -32,8 +32,8 @@ ul.nav.nav-tabs
           tr
             td = link_to vacancy.name, vacancy_path(vacancy)
             td = vacancy.salary
-            td = vacancy.created_at
-            td = vacancy.expires_at
+            td = vacancy.created_at.to_date
+            td = vacancy.expires_at.to_date
             td = vacancy.phone
             td = vacancy.email
             td = vacancy.extra_contacts
@@ -55,8 +55,8 @@ ul.nav.nav-tabs
           tr
             td = link_to vacancy.name, vacancy_path(vacancy)
             td = vacancy.salary
-            td = vacancy.created_at
-            td = vacancy.expires_at
+            td = vacancy.created_at.to_date
+            td = vacancy.expires_at.to_date
             td = vacancy.phone
             td = vacancy.email
             td = vacancy.extra_contacts
