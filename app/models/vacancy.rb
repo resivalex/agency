@@ -1,7 +1,7 @@
 class Vacancy < ActiveRecord::Base
   include Skillable
 
-  validates :name, :expires_at, :phone, :email, :extra_contacts, :salary, presence: true
+  validates :name, :expires_at, :phone, :email, :salary, presence: true
 
   scope :ordered, -> { order(salary: :desc) }
   scope :active, -> { where('expires_at >= ?', Time.current.at_beginning_of_day) }

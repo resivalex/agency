@@ -49,7 +49,7 @@
                                    'ng-repeat': 'item in selected.items'
       .col-md-6
         ui-select ng-model="selected.items" ng-init="initSelectedIds(#{@resume.skill_ids.to_json})" multiple=""
-          ui-select-match placeholder="Select skills..."
+          ui-select-match placeholder="#{t(:select_skills)}..."
             span ng-bind="$item.name"
 
           ui-select-choices repeat="item in (skills | filter: $select.search) track by item.id"
@@ -57,7 +57,7 @@
 
       .col-md-3
         .input-group
-          input.form-control ng-model="skillName" type="text" placeholder="New skill"
+          input.form-control ng-model="skillName" type="text" placeholder="#{t(:new_skill)}"
           span.input-group-btn
             button.btn.btn-default type="button" ng-click="addNewSkill(skillName)" +
 
