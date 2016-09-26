@@ -15,6 +15,6 @@ class Resume < ActiveRecord::Base
   end
 
   def partly_vacancies
-    Vacancy.has_unmatched_skills(skills).has_matched_skills(skills).active.ordered
+    Vacancy.has_partly_subset_of_skills(skills).active.ordered
   end
 end

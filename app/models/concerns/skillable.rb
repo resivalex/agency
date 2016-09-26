@@ -9,10 +9,6 @@ module Skillable
       joins(:skill_holdings).where.not(skill_holdings: { skill_id: skills.ids }).uniq
     end
 
-    scope :has_matched_skills, -> (skills) do
-      joins(:skill_holdings).uniq
-    end
-
     scope :matched_by_all_skills, -> (skills) do
       if skills.empty?
         all
@@ -31,6 +27,11 @@ module Skillable
 
     scope :has_full_subset_of_skills, -> (skills) do
       where.not(id: has_unmatched_skills(skills))
+    end
+
+    scope :has_partly_subset_of_skills, -> (skills) do
+      joins(:skill_holdings).where(skill_holdings: { skill_id: skills.ids })
+                            .where.not(id: has_full_subset_of_skills(skills)).uniq
     end
 
     def skills_line
