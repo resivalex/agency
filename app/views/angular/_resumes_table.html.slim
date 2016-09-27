@@ -9,7 +9,7 @@ table.table.table-striped
   tbody
     tr[ng-repeat="resume in resumes"]
       td
-        a[href="/resumes/{{resume.id}}"] {{resume.first_name}}
+        a[href="/resumes/{{resume.id}}"] {{resume.full_name}}
       td[] {{resume.phone}}
       td[] {{resume.email}}
       td[] {{resume.desired_salary}}

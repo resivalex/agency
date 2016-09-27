@@ -19,6 +19,6 @@ class Resume < ActiveRecord::Base
   end
 
   def as_json(*args)
-    super(*args).merge(skills_line: skills_line)
+    super(*args).merge(skills_line: skills_line, full_name: full_name)
   end
 end

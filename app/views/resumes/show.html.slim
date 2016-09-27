@@ -8,7 +8,7 @@ div
 
 br
 
-h2 = t(:suitable_vacancies)
+h2.page-header = t(:suitable_vacancies)
 
 ul.nav.nav-tabs
   li.active
@@ -17,9 +17,11 @@ ul.nav.nav-tabs
   li
     a data-toggle="tab" href="#part" = t(:partly).mb_chars.capitalize.to_s
 
-.tab-content
+.tab-content ng-app="app.resumes_index" ng-init="resumeId = #{@resume.id}"
   #full.tab-pane.active
-    = render 'shared/vacancies_table', vacancies: @resume.fully_vacancies
+    div ng-controller="ResumeFullyVacanciesCtrl"
+      vacancies-table page="page" page-size="3" total=(@resume.fully_vacancies.count) vacancies="vacancies"
 
   #part.tab-pane
-    = render 'shared/vacancies_table', vacancies: @resume.partly_vacancies
+    div ng-controller="ResumePartlyVacanciesCtrl"
+      vacancies-table page="page" page-size="3" total=(@resume.partly_vacancies.count) vacancies="vacancies"

@@ -17,9 +17,11 @@ ul.nav.nav-tabs
   li
     a data-toggle="tab" href="#part" = t(:partly).mb_chars.capitalize.to_s
 
-.tab-content
+.tab-content ng-app="app.vacancies_index" ng-init="vacancyId = #{@vacancy.id}"
   #full.tab-pane.active
-    = render 'shared/resumes_table', resumes: @vacancy.fully_resumes
+    div ng-controller="VacancyFullyResumesCtrl"
+      resumes-table page="page" page-size="3" total=(@vacancy.fully_resumes.count.length) resumes="resumes"
 
   #part.tab-pane
-    = render 'shared/resumes_table', resumes: @vacancy.partly_resumes
+    div ng-controller="VacancyPartlyResumesCtrl"
+      resumes-table page="page" page-size="3" total=(@vacancy.partly_resumes.count.length) resumes="resumes"

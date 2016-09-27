@@ -4,8 +4,16 @@ class ResumesController < ApplicationController
   def index
     respond_to do |f|
       f.html { @resumes = Resume.ordered }
-      f.json { render json: @resumes = Resume.ordered.page(params[:page] || 1).per(3) }
+      f.json { render json: Resume.ordered.page(params[:page] || 1).per(3) }
     end
+  end
+
+  def fully_vacancies
+    render json: Resume.find(params[:id]).fully_vacancies.page(params[:page] || 1).per(3)
+  end
+
+  def partly_vacancies
+    render json: Resume.find(params[:id]).partly_vacancies.page(params[:page] || 1).per(3)
   end
 
   def show
