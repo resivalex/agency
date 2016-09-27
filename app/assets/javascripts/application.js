@@ -6,5 +6,7 @@
 //= require angular-ui-select
 //= require angular-sanitize
 //= require angular-resource
+//= require angular-paging
 //= require ui-bootstrap-tpls-2.1.4.min
+//= require frontend
 //= require_tree .

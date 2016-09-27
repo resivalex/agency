@@ -1,4 +1,4 @@
-angular.module('app.vacancies', ['ui.select', 'ngSanitize', 'ui.bootstrap', 'backend'])
+angular.module('app.vacancies', ['ui.select', 'ngSanitize', 'ui.bootstrap', 'backend', 'frontend'])
 
 angular.module('app.vacancies')
 .controller('VacancyCtrl', ['$scope', 'Skill', ($scope, Skill) ->

@@ -29,6 +29,8 @@ gem 'pg'
 # Slim template engine
 gem 'slim-rails'
 gem 'russian'
+# Pagination
+gem 'kaminari'
 
 source 'https://rails-assets.org' do
   # Bootstrap
@@ -41,6 +43,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-sanitize'
   # ngResource
   gem 'rails-assets-angular-resource'
+  # Pagination
+  gem 'rails-assets-angular-paging'
 end
 
 # Use ActiveModel has_secure_password

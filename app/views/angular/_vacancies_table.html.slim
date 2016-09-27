@@ -1,0 +1,22 @@
+table.table.table-striped
+  thead
+    th = Vacancy.human_attribute_name(:name)
+    th = Vacancy.human_attribute_name(:salary)
+    th = Vacancy.human_attribute_name(:created_at)
+    th = Vacancy.human_attribute_name(:expires_at)
+    th = Vacancy.human_attribute_name(:phone)
+    th = Vacancy.human_attribute_name(:email)
+    th = Vacancy.human_attribute_name(:extra_contacts)
+    th = Vacancy.human_attribute_name(:skills)
+  tbody
+    tr[ng-repeat="vacancy in vacancies"]
+      td
+        a[href="/vacancies/{{vacancy.id}}"] {{vacancy.name}}
+      td[] {{vacancy.salary}}
+      td[] {{vacancy.created_at | date: 'yyyy-MM-dd'}}
+      td[] {{vacancy.expires_at | date: 'yyyy-MM-dd'}}
+      td[] {{vacancy.phone}}
+      td[] {{vacancy.email}}
+      td[] {{vacancy.extra_contacts}}
+      td[] {{vacancy.skills_line}}
+div[paging page="page" page-size="pageSize" total="total"]

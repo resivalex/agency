@@ -2,7 +2,10 @@ class VacanciesController < ApplicationController
   before_action :find_vacancy, only: [:show, :edit, :update, :destroy]
 
   def index
-    @vacancies = Vacancy.ordered
+    respond_to do |f|
+      f.html { @vacancies = Vacancy.ordered }
+      f.json { render json: @vacancies = Vacancy.ordered.page(params[:page] || 1).per(3) }
+    end
   end
 
   def show

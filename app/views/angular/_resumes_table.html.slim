@@ -1,0 +1,18 @@
+table.table.table-striped
+  thead
+    th = Resume.human_attribute_name(:first_name)
+    th = Resume.human_attribute_name(:phone)
+    th = Resume.human_attribute_name(:email)
+    th = Resume.human_attribute_name(:desired_salary)
+    th = Resume.human_attribute_name(:skills)
+    th = Resume.human_attribute_name(:is_active)
+  tbody
+    tr[ng-repeat="resume in resumes"]
+      td
+        a[href="/resumes/{{resume.id}}"] {{resume.first_name}}
+      td[] {{resume.phone}}
+      td[] {{resume.email}}
+      td[] {{resume.desired_salary}}
+      td[] {{resume.skills_line}}
+      td[] {{resume.is_active ? 'Yes' : 'No'}}
+div[paging page="page" page-size="pageSize" total="total"]

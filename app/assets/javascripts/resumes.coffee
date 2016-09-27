@@ -1,4 +1,4 @@
-angular.module('app.resumes', ['ui.select', 'ngSanitize', 'ui.bootstrap', 'backend'])
+angular.module('app.resumes', ['ui.select', 'ngSanitize', 'ui.bootstrap', 'backend', 'frontend'])
 
 angular.module('app.resumes')
 .controller('ResumeCtrl', ['$scope', 'Skill', ($scope, Skill) ->

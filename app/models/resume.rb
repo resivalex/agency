@@ -17,4 +17,8 @@ class Resume < ActiveRecord::Base
   def partly_vacancies
     Vacancy.has_partly_subset_of_skills(skills).active.ordered
   end
+
+  def as_json(*args)
+    super(*args).merge(skills_line: skills_line)
+  end
 end

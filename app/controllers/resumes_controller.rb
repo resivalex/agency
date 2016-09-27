@@ -2,7 +2,10 @@ class ResumesController < ApplicationController
   before_action :find_resume, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resumes = Resume.ordered
+    respond_to do |f|
+      f.html { @resumes = Resume.ordered }
+      f.json { render json: @resumes = Resume.ordered.page(params[:page] || 1).per(3) }
+    end
   end
 
   def show

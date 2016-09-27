@@ -1,5 +1,6 @@
 h1.page-header = Resume.model_name.human(count: 2).mb_chars.capitalize.to_s
 
-= link_to t(:new_resume), new_resume_path, class: 'btn btn-primary'
+= link_to t(:new_resume), new_resume_path, class: 'btn btn-primary', style: "margin-bottom:20px"
 
-= render 'shared/resumes_table', resumes: @resumes
+div ng-app="app.resumes_index" ng-controller="ResumesCtrl"
+  resumes-table page="page" page-size="3" total=(@resumes.count) resumes="resumes"

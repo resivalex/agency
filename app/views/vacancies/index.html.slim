@@ -1,5 +1,6 @@
 h1.page-header = Vacancy.model_name.human(count: 2).mb_chars.capitalize.to_s
 
-= link_to t(:new_vacancy), new_vacancy_path, class: 'btn btn-primary'
+= link_to t(:new_vacancy), new_vacancy_path, class: 'btn btn-primary', style: "margin-bottom:20px"
 
-= render 'shared/vacancies_table', vacancies: @vacancies
+div ng-app="app.vacancies_index" ng-controller="VacanciesCtrl"
+  vacancies-table page="page" page-size="3" total=(@vacancies.count) vacancies="vacancies"
